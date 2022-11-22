@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@font-face {
+    font-family: 'hamilton';
+    src: url(../fonts/hamiltoneg.ttf);
+}
+
 body {
     background-color: #FCE4A4;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -9,42 +15,75 @@ body {
 }
 
 .container {
-    width: 1140px;
-    margin: auto;
+    width: 1240px;
+    margin: 0 auto;
 }
 
-.flex {
+
+/* header */
+.header {
+    width: 100%;
+    position: fixed;
+    padding: 35px 0;
+    background-color: #FCE4A4;
+}
+.header__flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-/* header */
-.header {
-    margin-top: 24px;
-}
-
-.favourite {
-    margin-right: 6px;
+.header__logotype {
     cursor: pointer;
 }
+.logotype__h1 {
+    font-family: 'hamilton';
+    font-size: 48px;
+    text-decoration: none;
+    color: #443133;
+}
+.favourite__button {
+    display: flex;
+    cursor: pointer;
+}
+.favourite__icon {
+    font-size: 25px;
+    margin-right: 6px;
+    text-decoration: none;
+    color: #443133;
+}
+.favourite__count {
+    background-color: #443133;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: relative;
+}
+.count__text {
+    color: #FCE4A4;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 
 /* main */
 .main {
-    background-image: url('../images/bg.svg');
-    background-repeat: repeat-y;
-    background-position: center;
-    background-size: 80%;
-    min-height: 100vh;
+    padding-top: 130px;
 }
-
-.search-form {
-    margin: auto;
+.search__form {
+    margin: 0 auto;
     margin-bottom: 100px;
     width: 600px;
 }
-
-.search-meal, .select--kitchen, .select--dish{
+.select__wrapp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search__meal, .select__kitchen, .select__dish{
     margin-top: 6px;
     margin-bottom: 24px;
     padding: 12px 24px;
@@ -52,18 +91,15 @@ body {
     height: 50px;
     border-radius: 20px;
 }
-
 .select {
     width: 250px;
 }
-
-.select--kitchen,.select--dish {
+.select__kitchen, .select__dish {
     appearance: none;
     background-image: url('../images/arrow-select.svg'); 
     background-repeat: no-repeat;
     background-position: 95% center;
 }
-
 option {
     background-color: #FCE4A4;
     font-family: 'Montserrat';
@@ -71,22 +107,18 @@ option {
     font-size: 16px;
     color: #443133;
 }
-
-.button {
+.button__dark {
     font-weight: 600;
     font-size: 20px;
     line-height: 29px;
     border-radius: 20px;
-}
-
-.button--dark {
     padding: 11px 23px;
     background: #443133;
     color: #FCE4A4;
 }
 
 /* search-result */
-.search-result {
+.search__result {
     margin: auto;
     width: 600px;
 }
@@ -123,6 +155,7 @@ option {
 
 .card__ingredient { 
     grid-area: card__ingredient; 
+    display: flex;
     justify-content: start;
     gap: 20px;
     font-size: 14px;
@@ -130,6 +163,7 @@ option {
 
 .favourite { 
     grid-area: favourite; 
+    cursor: pointer;
 }
 
 .card__image { 
@@ -142,7 +176,9 @@ option {
     line-height: 17px;
 }
 
-.button--light {
+.button__light {
+    font-weight: 400;
+    border-radius: 20px;
     position: absolute;
     right: 24px;
     bottom: 12px;
@@ -151,11 +187,16 @@ option {
     font-size: 15px;
     line-height: 18px;
     color: #443133;
+    
 }
 
 /* page favourite */
-
-.link--home {
+.favourite__items {
+    margin: 0 auto;
+    width: 600px;
+    padding-top: 130px;
+}
+.link__home {
     justify-content: start;
     margin-bottom: 12px;
     gap: 10px;
@@ -164,7 +205,7 @@ option {
     color: #443133;
 }
 
-.link--home:hover {
+.link__home:hover {
     text-decoration: underline;
 }
 
