@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Meal Search</title>
+    <link rel="stylesheet" href="../src/css/null.css">
+    <link rel="stylesheet" href="../src/css/style.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    
+    <header class="header">
+      <div class="container flex">
+        <a href="index.html"><img class="header__logotip" src="../src/images/logotip.svg" alt=""></a>
+        <a href="#!" class="header__count">
+          <img class="favourite" src="../src/images/favourite.svg" alt="">
+          <img class="count" src="../src/images/count.svg" alt="">
+        </a>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <section class="search-result">
+          <a class="link--home flex" href="index.html"><img src="../src/images/link-arrow.svg" alt="">Вернуться к поиску</a>
+          <div class="card">
+            <div class="card__title">Салат Летний</div>
+            <img class="card__image" src="../src/images/card__img.jpg" alt="">
+            <ul class="card__ingredient flex">
+              <li>помидор</li>
+              <li>огурец</li>
+              <li>лук</li>
+              <li>масло</li>
+            </ul>
+            <div class="card__desc">Самый простой и самый вкусный летний салат</div>
+            <svg class="delete" width="30" height="35" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5 31.25C12.5 31.9375 11.9375 32.5 11.25 32.5C10.5625 32.5 10 31.9375 10 31.25V15C10 14.3125 10.5625 13.75 11.25 13.75C11.9375 13.75 12.5 14.3125 12.5 15V31.25ZM18.75 31.25C18.75 31.9375 18.1875 32.5 17.5 32.5C16.8125 32.5 16.25 31.9375 16.25 31.25V15C16.25 14.3125 16.8125 13.75 17.5 13.75C18.1875 13.75 18.75 14.3125 18.75 15V31.25ZM25 31.25C25 31.9375 24.4375 32.5 23.75 32.5C23.0625 32.5 22.5 31.9375 22.5 31.25V15C22.5 14.3125 23.0625 13.75 23.75 13.75C24.4375 13.75 25 14.3125 25 15V31.25ZM24.8047 1.94844L27.6719 6.25H33.125C34.1641 6.25 35 7.08984 35 8.125C35 9.16406 34.1641 10 33.125 10H32.5V33.75C32.5 37.2031 29.7031 40 26.25 40H8.75C5.29844 40 2.5 37.2031 2.5 33.75V10H1.875C0.839844 10 0 9.16406 0 8.125C0 7.08984 0.839844 6.25 1.875 6.25H7.32969L10.1953 1.94844C11.0078 0.731016 12.375 0 13.8359 0H21.1641C22.625 0 23.9922 0.731094 24.8047 1.94844ZM11.8359 6.25H23.1641L21.6797 4.02813C21.5625 3.85469 21.3672 3.75 21.1641 3.75H13.8359C13.6328 3.75 13.3672 3.85469 13.3203 4.02813L11.8359 6.25ZM6.25 33.75C6.25 35.1328 7.36953 36.25 8.75 36.25H26.25C27.6328 36.25 28.75 35.1328 28.75 33.75V10H6.25V33.75Z" fill="#443133"/>
+            </svg>
+          </div>
+        </section>
+      </div>
+    </main>
+
+  </body>
+</html>

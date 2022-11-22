@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,20 +22,70 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Meal Search</title>
+    <link rel="stylesheet" href="../src/css/null.css">
+    <link rel="stylesheet" href="../src/css/style.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    
+    <header class="header">
+      <div class="container flex">
+        <img class="header__logotip" src="../src/images/logotip.svg" alt="">
+        <a href="favourite.html" class="header__count">
+          <img class="favourite" src="../src/images/favourite.svg" alt="">
+          <img class="count" src="../src/images/count.svg" alt="">
+        </a>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container">
+        <form action="#" class="search-form">
+          <label for="search-meal">Желаемые ингредиенты:</label><br>
+          <input type="search" id="search-meal" class="search-meal"><br>
+          <div class="flex select__wrapp">
+            <div class="select"> 
+              <label for="select-kitchen">Кухня:</label> <br>
+              <select name="select-kitchen" id="select-kitchen" class="select--kitchen"> 
+                <option value="all selected">Все</option>
+                <option value="eastern">Восточная кухня</option>
+                <option value="home">Домашняя кухня</option>
+                <option value="vegetarian">Вегетарианская кухня</option>
+              </select>
+            </div>
+  
+            <div class="select">
+              <label for="select-dish">Тип блюда:</label> <br>
+              <select name="select-dish" id="select-dish" class="select--dish"> 
+                <option value="all selected">Все</option>
+                <option value="eastern">Восточная кухня</option>
+                <option value="home">Домашняя кухня</option>
+                <option value="vegetarian">Вегетарианская кухня</option>
+              </select>
+            </div>
+          </div>
+          <button class="button button--dark" type="submit">Найти рецепты</button>
+        </form> 
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        <section class="search-result">
+          <p class="result__title">Результаты поиска: <b>найдено 2 рецепта</b></p>
+          <div class="card">
+            <div class="card__title">Салат Летний</div>
+            <img class="card__image" src="../src/images/card__img.jpg" alt="">
+            <ul class="card__ingredient flex">
+              <li>помидор</li>
+              <li>огурец</li>
+              <li>лук</li>
+              <li>масло</li>
+            </ul>
+            <div class="card__desc">Самый простой и самый вкусный летний салат</div>
+            <img class="favourite" src="../src/images/favourite.svg" alt="">
+            <a href="#" class="button button--light">Открыть</a>
+          </div>
+        </section>
+      </div>
+    </main>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
