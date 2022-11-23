@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
@@ -18,9 +19,11 @@ function Card() {
       <div className="favourite">
         <FontAwesomeIcon icon={regular('bookmark')} />
       </div>
-      <a href="#" className="button__light">
-        Открыть
-      </a>
+      <Link to="/recipe">
+        <div className="button__light">
+          Открыть
+        </div>
+      </Link>
     </div>
   );
 }

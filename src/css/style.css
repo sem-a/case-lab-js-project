@@ -20,7 +20,7 @@ body {
 }
 
 
-/* header */
+/* Header */
 .header {
     width: 100%;
     position: fixed;
@@ -69,7 +69,7 @@ body {
 
 
 
-/* main */
+/* Form */
 .main {
     padding-top: 130px;
 }
@@ -117,10 +117,11 @@ option {
     color: #FCE4A4;
 }
 
-/* search-result */
+/* Searsh Result and Card */
 .search__result {
     margin: auto;
     width: 600px;
+    padding-bottom: 100px;
 }
 
 .result__title {
@@ -190,19 +191,23 @@ option {
     
 }
 
-/* page favourite */
+/* Favourite */
 .favourite__items {
     margin: 0 auto;
     width: 600px;
     padding-top: 130px;
 }
 .link__home {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     justify-content: start;
     margin-bottom: 12px;
     gap: 10px;
     font-weight: 600;
     font-size: 16px;
     color: #443133;
+    text-decoration: none;
 }
 
 .link__home:hover {
@@ -219,4 +224,56 @@ option {
 
 .delete:hover path{
     fill: #FF001B;
+}
+
+
+/* Recipe */
+
+.recipe {
+    padding-top: 130px;
+}
+.recipe__title {
+
+}
+h2.recipe__h2 {
+    font-weight: 700;
+    font-size: 36px;
+}
+.recipe__flex {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 24px;
+}
+.recipe__img img{
+    width: 420px;
+    border-radius: 5px;
+}
+.recipe__ingredient {
+    margin-left: 100px;
+}
+.ingredient__title p {
+    font-size: 26px;
+    font-weight: 700;
+}
+ul.ingredient__list {
+    margin-top: 24px;
+}
+li.ingredient__item {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+.recipe__algoritm {
+    margin-top: 50px;
+}
+.algoritm__title p{
+    font-size: 26px;
+    font-weight: 700;
+}
+ul.algoritm__list {
+    margin-top: 10px;
+    padding-bottom: 50px;
+}
+li.algoritm__item {
+    list-style-type: decimal;
+    list-style-position: inside;
 }
