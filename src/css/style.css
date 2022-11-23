@@ -17,6 +17,48 @@ body {
 .container {
     width: 1240px;
     margin: 0 auto;
+    z-index: 1;
+}
+
+/* FixedBg */
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.bg__item-1 {
+    position: absolute;
+    width: 190px;
+    top: 180px;
+    left: 120px;
+}
+.bg__item-2 {
+    position: absolute;
+    width: 150px;
+    top: 450px;
+    left: 215px;
+}
+.bg__item-3 {   
+    position: absolute;
+    width: 103px;
+    top: 160px;
+    left: 1081px;
+    transform: rotate(45deg);
+}
+.bg__item-4 {
+    position: absolute;
+    width: 115px;
+    top: 400px;
+    left: 1180px;
+    transform: rotate(-0deg);
+}
+.bg__item-5 {
+    position: absolute;
+    width: 201px;
+    top: 750px;
+    left: 1060px;
+    transform: rotate(0deg);
 }
 
 
@@ -26,6 +68,7 @@ body {
     position: fixed;
     padding: 35px 0;
     background-color: #FCE4A4;
+    z-index: 100;
 }
 .header__flex {
     display: flex;
@@ -71,7 +114,9 @@ body {
 
 /* Form */
 .main {
+    position: relative;
     padding-top: 130px;
+    z-index: 50;
 }
 .search__form {
     margin: 0 auto;
@@ -119,9 +164,11 @@ option {
 
 /* Searsh Result and Card */
 .search__result {
+    position: relative;
     margin: auto;
     width: 600px;
     padding-bottom: 100px;
+    z-index: 50;
 }
 
 .result__title {
@@ -193,9 +240,11 @@ option {
 
 /* Favourite */
 .favourite__items {
+    position: relative;
     margin: 0 auto;
     width: 600px;
     padding-top: 130px;
+    z-index: 50;
 }
 .link__home {
     cursor: pointer;
@@ -230,7 +279,9 @@ option {
 /* Recipe */
 
 .recipe {
+    position: relative;
     padding-top: 130px;
+    z-index: 50;
 }
 .recipe__title {
 

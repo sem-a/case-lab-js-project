@@ -50,6 +50,9 @@ function Recipe() {
             </div>
         </div>
       </div>
+
+    
+
     </div>
   );
 }
