@@ -8,14 +8,24 @@ import FixedBg from './components/FixedBg';
 import './css/null.css';
 import './css/style.css';
 
-
 function App() {
-  
   const [recipes, setRecipes] = useState([
     { title: '1', desc: '1', ingr: '1' },
-    { title: '2', desc: '2', ingr: '2' },    
-    { title: '3', desc: '3', ingr: '3' }
+    { title: '2', desc: '2', ingr: '2' },
+    { title: '3', desc: '3', ingr: '3' },
   ]);
+
+  const createResultPhrase = (arg: number) => {
+    let titles = ['рецепт', 'рецепта', 'рецептов'];
+    let cases = [2, 0, 1, 1, 1, 2];
+    let find = ['найдено', 'найден']
+    if (arg % 10 == 1) {
+      return `${find[1]} ${arg} ${titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]}`
+    } else {
+      return`${find[0]} ${arg} ${titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]}`
+    }
+  };
+  const resultPhrase = createResultPhrase(recipes.length);
 
   return (
     <div>
@@ -24,13 +34,13 @@ function App() {
 
       <div className="search__result">
         <p className="result__title">
-          Результаты поиска: <b>найдено 2 рецепта</b>
+          Результаты поиска: <b>{resultPhrase}</b>
         </p>
         {/* 
           Здесь нужно реализовать поиск и вывод карточек с рецептами  
           По нажатию на закладку, рецепт должен отправлять в Избранное и изменить значек на залитый
         */}
-        
+
         <CardList recipes={recipes} />
       </div>
       <FixedBg />

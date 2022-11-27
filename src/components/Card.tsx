@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 function Card(props: any) {
-
+  
   return (
     <div className="card">
       <div className="card__title">{props.title}</div>
