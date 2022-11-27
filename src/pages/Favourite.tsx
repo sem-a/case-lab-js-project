@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Header from '../components/Header';
 import FixedBg from '../components/FixedBg';
-import FavouriteCardList from '../components/FavouritesCard';
+import FavouriteCard from '../components/FavouritesCard';
 
 function Favourite(props: any) {
 
@@ -25,7 +25,7 @@ function Favourite(props: any) {
           Здесь вывод карточек, которые попали в избранное
         */}
 
-        <FavouriteCardList favRecipe={favRecipes} />
+        <FavouriteCard />
       </div>
       <FixedBg />
     </div>

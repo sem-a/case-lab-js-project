@@ -26,11 +26,4 @@ function FavouriteCard(porps: any) {
 }
 
 
-function FavouriteCardList(props: any) {
-  const recipeList = props.recipe.map((recipe: any) => {
-    return <FavouriteCard title={recipe.title} desc={recipe.desc} />;
-  });
-  return <div>{recipeList}</div>;
-}
-
-export default FavouriteCardList;
+export default FavouriteCard;
