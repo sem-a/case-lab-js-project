@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -7,6 +7,9 @@ import FavouriteCard from '../components/FavouritesCard';
 import FixedBg from '../components/FixedBg';
 
 function Favourite() {
+  
+  const [favRecipe, setFavRecipe] = useState([]);
+
   return (
     <div>
       <Header />

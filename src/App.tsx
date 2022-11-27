@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import Header from './components/Header';
 import Form from './components/Form';
-import Card from './components/Card';
+import CardList from './components/Card';
 import FixedBg from './components/FixedBg';
 
 import './css/null.css';
 import './css/style.css';
+
 
 function App() {
   
@@ -25,13 +26,12 @@ function App() {
         <p className="result__title">
           Результаты поиска: <b>найдено 2 рецепта</b>
         </p>
-        
         {/* 
           Здесь нужно реализовать поиск и вывод карточек с рецептами  
           По нажатию на закладку, рецепт должен отправлять в Избранное и изменить значек на залитый
         */}
-
-        <Card title={recipe[0].title} desc={recipe[0].desc} />
+        
+        <CardList recipe={recipe} />
       </div>
       <FixedBg />
     </div>
