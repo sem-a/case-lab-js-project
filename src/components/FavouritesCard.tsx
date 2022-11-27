@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { Link } from 'react-router-dom';
 
 function FavouriteCard() {
   return (
@@ -17,6 +18,9 @@ function FavouriteCard() {
       <div className="delete">
         <FontAwesomeIcon icon={solid('trash')} />
       </div>
+      <Link to="/recipe">
+        <div className="button__light">Открыть</div>
+      </Link>
     </div>
   );
 }
