@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-function Card() {
+function Card (props: any) {
   return (
     <div className="card">
-      <div className="card__title">Салат Летний</div>
+      <div className="card__title">{props.title}</div>
       <img className="card__image" src={require('../images/card__img.jpg')} alt="" />
       <ul className="card__ingredient">
         <li>помидор</li>
@@ -14,7 +14,7 @@ function Card() {
         <li>лук</li>
         <li>масло</li>
       </ul>
-      <div className="card__desc">Самый простой и самый вкусный летний салат</div>
+      <div className="card__desc">{props.desc}</div>
       <div className="favourite">
         <label className="favourite__label" htmlFor='favourite'>
           <input type="checkbox" name="favourite" id="favourite" className="favourite__checkbox" />
