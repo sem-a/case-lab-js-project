@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Header from '../components/Header';
-import FavouriteCard from '../components/FavouritesCard';
 import FixedBg from '../components/FixedBg';
+import FavouriteCardList from '../components/FavouritesCard';
 
-function Favourite() {
-  
-  const [favRecipe, setFavRecipe] = useState([]);
+function Favourite(props: any) {
+
+  const [favRecipes, setFavRecipes] = useState([]);
 
   return (
     <div>
@@ -25,7 +25,7 @@ function Favourite() {
           Здесь вывод карточек, которые попали в избранное
         */}
 
-        <FavouriteCard />
+        <FavouriteCardList favRecipe={favRecipes} />
       </div>
       <FixedBg />
     </div>

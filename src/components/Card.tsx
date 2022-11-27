@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 function Card(props: any) {
+
   return (
     <div className="card">
       <div className="card__title">{props.title}</div>
@@ -16,7 +15,7 @@ function Card(props: any) {
       </ul>
       <div className="card__desc">{props.desc}</div>
       <div className="favourite">
-        <label className="favourite__label" htmlFor="favourite">
+        <label className="favourite__label">
           <input type="checkbox" name="favourite" id="favourite" className="favourite__checkbox" />
           <span className="checkmark"></span>
         </label>
@@ -29,7 +28,7 @@ function Card(props: any) {
 }
 
 function CardList(props: any) {
-  const recipeList = props.recipe.map((recipe: any) => {
+  const recipeList = props.recipes.map((recipe: any) => {
     return <Card title={recipe.title} desc={recipe.desc} />;
   });
   return <div>{recipeList}</div>;

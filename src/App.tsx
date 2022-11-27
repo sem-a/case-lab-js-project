@@ -11,7 +11,7 @@ import './css/style.css';
 
 function App() {
   
-  const [recipe, setRecipe] = useState([
+  const [recipes, setRecipes] = useState([
     { title: '1', desc: '1', ingr: '1' },
     { title: '2', desc: '2', ingr: '2' },    
     { title: '3', desc: '3', ingr: '3' }
@@ -31,7 +31,7 @@ function App() {
           По нажатию на закладку, рецепт должен отправлять в Избранное и изменить значек на залитый
         */}
         
-        <CardList recipe={recipe} />
+        <CardList recipes={recipes} />
       </div>
       <FixedBg />
     </div>
