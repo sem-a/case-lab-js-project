@@ -9,22 +9,28 @@ import './css/style.css';
 
 function App() {
   const [recipes, setRecipes] = useState([
-    { title: '1', desc: '1', ingr: '1' },
-    { title: '2', desc: '2', ingr: '2' },
-    { title: '3', desc: '3', ingr: '3' },
+    // { title: '1', desc: '1', ingr: '1' },
+    // { title: '2', desc: '2', ingr: '2' },
+    // { title: '3', desc: '3', ingr: '3' },
   ]);
 
 
-  const createResultPhrase = (arg: number) => { // функция генерирует правильную фразу по результатам поиска
+  const createResultPhrase = (arg: number) => {
+    // функция генерирует правильную фразу по результатам поиска
     let titles = ['рецепт', 'рецепта', 'рецептов'];
     let cases = [2, 0, 1, 1, 1, 2];
-    let find = ['найдено', 'найден']
+    let find = ['найдено', 'найден'];
     if (arg % 10 == 1) {
-      return `${find[1]} ${arg} ${titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]}`
-    } if (arg == 0) {
-      return 'ничего не найдено'
+      return `${find[1]} ${arg} ${
+        titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]
+      }`;
+    }
+    if (arg == 0) {
+      return 'ничего не найдено';
     } else {
-      return`${find[0]} ${arg} ${titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]}`
+      return `${find[0]} ${arg} ${
+        titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]
+      }`;
     }
   };
   const resultPhrase = createResultPhrase(recipes.length);
