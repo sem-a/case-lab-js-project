@@ -1,6 +1,7 @@
 import React from 'react';
 
-function Form() {
+function Form( props: any) {
+
   return (
     <div className="main">
       <div className="container">
