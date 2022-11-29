@@ -1,11 +1,25 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Card(props: any) {
+
+  const [checked, setChecked] = useState<boolean>();
+
+  useEffect( () => {
+    if(localStorage.getItem(props.recipe.id) == undefined) {
+      setChecked(false);
+    } else {
+      setChecked(true);
+    }
+  }, [])
   
-  const addRecipeStorage = () => {
-    localStorage.setItem(props.recipe.id, JSON.stringify(props.recipe))
-  }
+  const changeChecked = (e: boolean) => { // добавление/удаление в localStorage
+    if (e) {
+      localStorage.setItem(props.recipe.id, JSON.stringify(props.recipe));
+    } else {
+      localStorage.removeItem(props.recipe.id);
+    }
+  };
 
   return (
     <div className="card">
@@ -20,7 +34,17 @@ function Card(props: any) {
       <div className="card__desc">{props.recipe.desc}</div>
       <div className="favourite">
         <label className="favourite__label">
-          <input type="checkbox" name="favourite" id="favourite" className="favourite__checkbox" onClick={addRecipeStorage} />
+          <input
+            type="checkbox"
+            name="favourite"
+            id="favourite"
+            className="favourite__checkbox"
+            checked={checked}
+            onChange={(e) => {
+              changeChecked(e.target.checked)
+              setChecked(e.target.checked)
+            }}
+          />
           <span className="checkmark"></span>
         </label>
       </div>

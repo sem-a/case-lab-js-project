@@ -10,8 +10,6 @@ import './css/style.css';
 function App() {
 
   const [recipes, setRecipes] = useState([]);
-  const [favRecipes, setFavRecipes] = useState([]);
-
 
   const createResultPhrase = (arg: number) => {
     // функция генерирует правильную фразу по результатам поиска
