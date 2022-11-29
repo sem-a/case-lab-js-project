@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 function Card(props: any) {
   
+  const addRecipeStorage = () => {
+    localStorage.setItem(props.recipe.id, JSON.stringify(props.recipe))
+  }
+
   return (
     <div className="card">
-      <div className="card__title">{props.title}</div>
+      <div className="card__title">{props.recipe.title}</div>
       <img className="card__image" src={require('../images/card__img.jpg')} alt="" />
       <ul className="card__ingredient">
         <li>помидор</li>
@@ -13,10 +17,10 @@ function Card(props: any) {
         <li>лук</li>
         <li>масло</li>
       </ul>
-      <div className="card__desc">{props.desc}</div>
+      <div className="card__desc">{props.recipe.desc}</div>
       <div className="favourite">
         <label className="favourite__label">
-          <input type="checkbox" name="favourite" id="favourite" className="favourite__checkbox" />
+          <input type="checkbox" name="favourite" id="favourite" className="favourite__checkbox" onClick={addRecipeStorage} />
           <span className="checkmark"></span>
         </label>
       </div>
@@ -29,7 +33,7 @@ function Card(props: any) {
 
 function CardList(props: any) {
   const recipeList = props.recipes.map((recipe: any) => {
-    return <Card title={recipe.title} desc={recipe.desc} />;
+    return <Card recipe={recipe} />;
   });
   return <div>{recipeList}</div>;
 }

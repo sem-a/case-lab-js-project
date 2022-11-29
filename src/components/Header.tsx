@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 function Header() {
+
   return (
     <div className="header">
       <div className="container">
@@ -19,7 +20,7 @@ function Header() {
                 <FontAwesomeIcon icon={regular('bookmark')} />
               </div>
               <div className="favourite__count">
-                <p className="count__text">0</p>
+                <p className="count__text">{localStorage.lenght}</p>
               </div>
             </div>
           </Link>

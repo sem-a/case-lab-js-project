@@ -8,11 +8,9 @@ import './css/null.css';
 import './css/style.css';
 
 function App() {
-  const [recipes, setRecipes] = useState([
-    // { title: '1', desc: '1', ingr: '1' },
-    // { title: '2', desc: '2', ingr: '2' },
-    // { title: '3', desc: '3', ingr: '3' },
-  ]);
+
+  const [recipes, setRecipes] = useState([]);
+  const [favRecipes, setFavRecipes] = useState([]);
 
 
   const createResultPhrase = (arg: number) => {

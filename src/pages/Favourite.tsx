@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
@@ -6,9 +6,25 @@ import Header from '../components/Header';
 import FixedBg from '../components/FixedBg';
 import FavouriteCard from '../components/FavouritesCard';
 
-function Favourite(props: any) {
+function Favourite() {
 
-  const [favRecipes, setFavRecipes] = useState([]);
+  const [favRecipes, setFavRecipes] = useState<Array<Object>>([]);
+  const [del, setDel] = useState('')
+
+  const readLocalStorage = () => {
+    const keys = Object.keys(localStorage);
+    const recipe = []
+    for (let i = 0; i < keys.length; i++) {
+      const recipeData = localStorage.getItem(keys[i]);
+      recipe[i] = JSON.parse(recipeData || '');
+    }
+    setFavRecipes(recipe)
+  }
+
+  useEffect( () => {
+    readLocalStorage();
+  },[del]);
+ 
 
   return (
     <div>
@@ -25,7 +41,7 @@ function Favourite(props: any) {
           Здесь вывод карточек, которые попали в избранное
         */}
 
-        <FavouriteCard />
+        <FavouriteCard setDel={setDel} favRecipes={favRecipes} />
       </div>
       <FixedBg />
     </div>
