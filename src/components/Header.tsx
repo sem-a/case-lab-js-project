@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-function Header() {
-  const [count, setCount] = useState<number>();
-  const [storageLenght, setStorageLenght] = useState<number>()
-  useEffect(() => {
+function Header(props: any) {
+  
+  //const [count, setCount] = useState<number>()
 
-  }, [storageLenght]);
+  // useEffect(() => {
+  //   const lenghtStorage = localStorage.length;
+  //   setCount(lenghtStorage);
+  // },[]);
 
   return (
     <div className="header">
@@ -25,7 +27,7 @@ function Header() {
                 <FontAwesomeIcon icon={regular('bookmark')} />
               </div>
               <div className="favourite__count">
-                <p className="count__text">{count}</p>
+                <p className="count__text">{props.count}</p>
               </div>
             </div>
           </Link>

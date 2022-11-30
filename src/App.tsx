@@ -9,6 +9,7 @@ import './css/style.css';
 
 function App() {
 
+  const [count, setCount] = useState<number>(localStorage.length);
   const [recipes, setRecipes] = useState([]);
 
   const createResultPhrase = (arg: number) => {
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header count={count} />
       <Form setRecipes={setRecipes} />
 
       <div className="search__result">
@@ -45,7 +46,7 @@ function App() {
           По нажатию на закладку, рецепт должен отправлять в Избранное и изменить значек на залитый
         */}
 
-        <CardList recipes={recipes} />
+        <CardList setCount={setCount} recipes={recipes} />
       </div>
       <FixedBg />
     </div>

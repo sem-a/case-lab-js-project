@@ -43,6 +43,7 @@ function Card(props: any) {
             onChange={(e) => {
               changeChecked(e.target.checked)
               setChecked(e.target.checked)
+              props.setCount(localStorage.length);
             }}
           />
           <span className="checkmark"></span>
@@ -57,7 +58,7 @@ function Card(props: any) {
 
 function CardList(props: any) {
   const recipeList = props.recipes.map((recipe: any) => {
-    return <Card recipe={recipe} />;
+    return <Card setCount={props.setCount} recipe={recipe} />;
   });
   return <div>{recipeList}</div>;
 }
