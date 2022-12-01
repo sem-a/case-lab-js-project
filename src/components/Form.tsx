@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-let flag = false;
-
 function Form(props: any) {
   const url = 'http://178.250.159.176:3000/';
 
@@ -18,11 +16,10 @@ function Form(props: any) {
     const dataRecipes = await fetch(`${url}api?products=${searchInput}` + (kitchen != 'Все' ? `&kitchen=${kitchen}` : '') + (type != 'Все' ? `&type=${type}` : ''));
     const recipes = await dataRecipes.json();
     props.props.setRecipes(recipes);
+    console.log(recipes)
   };
 
   useEffect(() => {
-    if (flag) return;
-    flag = true;
 
     fetch(url + 'api/kitchens')
     .then(e => e.json())

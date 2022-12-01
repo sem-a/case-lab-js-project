@@ -1,13 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Header from '../components/Header';
 
+function IngredientList(props: any) {
+  const ingredientList = props.products.map((item: string) => {
+    return (
+      <li className="ingredient__item">{item}</li>
+    );
+  });
+  return <div>{ingredientList}</div>;
+};
+function Steps(props: any) {
+  const stepList = props.steps.map((item: {image_url: string, text: string}) => {
+    return (
+      <li className="algoritm__item">
+        <p>{item.text}</p>
+        <img src={item.image_url} alt="фото шага" />  
+      </li>
+    );
+  });
+  return <div>{stepList}</div>;
+};
+
 function Recipe() {
+  
+  const count = localStorage.length
+  let location = useLocation();
+
   return (
     <div>
-      <Header />
+      <Header count={count} />
       <div className="recipe">
         <div className="container">
           <Link to="/">
@@ -17,21 +41,18 @@ function Recipe() {
             </div>
           </Link>
           <div className="recipe__title">
-            <h2 className="recipe__h2">Салат летний</h2>
+            <h2 className="recipe__h2">{location.state.title}</h2>
           </div>
           <div className="recipe__flex">
             <div className="recipe__img">
-              <img src={require('../images/card__img.jpg')} alt="cardImg" />
+              <img src={location.state.image} alt="cardImg" />
             </div>
             <div className="recipe__ingredient">
               <div className="ingredient__title">
                 <p>Ингредиенты:</p>
               </div>
               <ul className="ingredient__list">
-                <li className="ingredient__item">Помидоры 3-4 шт.</li>
-                <li className="ingredient__item">Огурцы 3-4 шт.</li>
-                <li className="ingredient__item">Репчатый лук 1 шт.</li>
-                <li className="ingredient__item">Растительное масло</li>
+                <IngredientList products={location.state.products} />
               </ul>
             </div>
           </div>
@@ -40,12 +61,7 @@ function Recipe() {
                 <p>Рецепт:</p>
               </div>
               <ul className="algoritm__list">
-                <li className="algoritm__item">Берем вымытые помидоры и нарезаем их.</li>
-                <li className="algoritm__item">Берем вымытые помидоры и нарезаем их.</li>
-                <li className="algoritm__item">Берем вымытые помидоры и нарезаем их.</li>
-                <li className="algoritm__item">Берем вымытые помидоры и нарезаем их.</li>
-                <li className="algoritm__item">Берем вымытые помидоры и нарезаем их.</li>
-                <li className="algoritm__item">Берем вымытые помидоры и нарезаем их.</li>
+                <Steps steps={location.state.steps}/>
               </ul>
             </div>
         </div>
