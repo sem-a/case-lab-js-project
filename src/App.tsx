@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import Header from './components/Header';
 import Form from './components/Form';
 import CardList from './components/Card';
@@ -8,21 +9,15 @@ import './css/null.css';
 import './css/style.css';
 
 function App() {
-  const [recipes, setRecipes] = useState([
-    { title: '1', desc: '1', ingr: '1' },
-    { title: '2', desc: '2', ingr: '2' },
-    { title: '3', desc: '3', ingr: '3' },
-  ]);
+  const [recipes, setRecipes] = useState([]);
 
-
-  const createResultPhrase = (arg: number) => { // функция генерирует правильную фразу по результатам поиска
+  const createResultPhrase = (arg: number) => {
     let titles = ['рецепт', 'рецепта', 'рецептов'];
     let cases = [2, 0, 1, 1, 1, 2];
     let find = ['найдено', 'найден']
+
     if (arg % 10 == 1) {
       return `${find[1]} ${arg} ${titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]}`
-    } if (arg == 0) {
-      return 'ничего не найдено'
     } else {
       return`${find[0]} ${arg} ${titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]}`
     }
@@ -32,11 +27,14 @@ function App() {
   return (
     <div>
       <Header />
-      <Form setRecipes={setRecipes} />
+      <Form props={{setRecipes}}/>
 
       <div className="search__result">
         <p className="result__title">
-          Результаты поиска: <b>{resultPhrase}</b>
+          {
+            recipes.length == 0 ? <b>Попробуйте что-нибудь найти.</b> : <span>Результаты поиска: <b>{resultPhrase}</b></span>
+          }
+          
         </p>
         {/* 
           Здесь нужно реализовать поиск и вывод карточек с рецептами  
