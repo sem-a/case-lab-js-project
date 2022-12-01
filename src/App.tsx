@@ -8,7 +8,6 @@ import './css/null.css';
 import './css/style.css';
 
 function App() {
-
   const [count, setCount] = useState<number>(localStorage.length);
   const [recipes, setRecipes] = useState([]);
 
@@ -35,18 +34,20 @@ function App() {
   return (
     <div>
       <Header count={count} />
-      <Form setRecipes={setRecipes} />
+      <Form props={{ setRecipes }} />
 
       <div className="search__result">
         <p className="result__title">
-          Результаты поиска: <b>{resultPhrase}</b>
-        </p>
-        {/* 
-          Здесь нужно реализовать поиск и вывод карточек с рецептами  
-          По нажатию на закладку, рецепт должен отправлять в Избранное и изменить значек на залитый
-        */}
+          {recipes.length == 0 ? (
+            <b>Попробуйте что-нибудь найти.</b>
+          ) : (
+            <p>
+              Результаты поиска: <b>{resultPhrase}</b>
+            </p>
+          )}
 
-        <CardList setCount={setCount} recipes={recipes} />
+          <CardList  setCount={setCount} recipes={recipes} />
+        </p>
       </div>
       <FixedBg />
     </div>

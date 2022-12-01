@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Card(props: any) {
+interface recipe {
+  id: string
+  products: string[]
+  title: string
+  description: string
+  image: string
+  setCount(lenght: number): void
+}
 
+function Card(props: recipe) {
+
+  let products;
+  if (props.products.length > 3) {
+    products = props.products.slice(0,3);
+    products = products.join(', ');
+    products+='...';
+  } else products = props.products.join(', ');
   const [checked, setChecked] = useState<boolean>();
 
   useEffect( () => {
-    if(localStorage.getItem(props.recipe.id) == undefined) {
+    if(localStorage.getItem(props.id) == undefined) {
       setChecked(false);
     } else {
       setChecked(true);
@@ -15,23 +30,20 @@ function Card(props: any) {
   
   const changeChecked = (e: boolean) => { // добавление/удаление в localStorage
     if (e) {
-      localStorage.setItem(props.recipe.id, JSON.stringify(props.recipe));
+      localStorage.setItem(props.id, JSON.stringify(props));
     } else {
-      localStorage.removeItem(props.recipe.id);
+      localStorage.removeItem(props.id);
     }
   };
 
   return (
     <div className="card">
-      <div className="card__title">{props.recipe.title}</div>
-      <img className="card__image" src={require('../images/card__img.jpg')} alt="" />
+      <div className="card__title">{props.title}</div>
+      <img className="card__image" src={props.image} alt="" />
       <ul className="card__ingredient">
-        <li>помидор</li>
-        <li>огурец</li>
-        <li>лук</li>
-        <li>масло</li>
+      <li>{products}</li>
       </ul>
-      <div className="card__desc">{props.recipe.desc}</div>
+      <div className="card__desc">{props.description}</div>
       <div className="favourite">
         <label className="favourite__label">
           <input
@@ -58,7 +70,14 @@ function Card(props: any) {
 
 function CardList(props: any) {
   const recipeList = props.recipes.map((recipe: any) => {
-    return <Card setCount={props.setCount} recipe={recipe} />;
+    return <Card
+      id={recipe.id} 
+      title={recipe.title} 
+      description={recipe.description} 
+      products={recipe.products} 
+      image={recipe.main_img_url.startsWith('//') ? 'http:' + recipe.main_img_url : recipe.main_img_url}
+      setCount={props.setCount}
+    />;
   });
   return <div>{recipeList}</div>;
 }
