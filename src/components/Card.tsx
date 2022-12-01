@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Recipe from '../pages/Recipe';
 
 interface recipe {
   id: string
@@ -61,7 +62,7 @@ function Card(props: recipe) {
           <span className="checkmark"></span>
         </label>
       </div>
-      <Link to="/recipe">
+      <Link to={`/recipe/${props.id}`}>
         <div className="button__light">Открыть</div>
       </Link>
     </div>
