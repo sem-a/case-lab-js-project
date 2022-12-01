@@ -178,7 +178,7 @@ option {
 .card {
     position: relative;
     margin-bottom: 20px;
-    padding: 12px 24px;
+    padding: 12px 24px 36px;
     width: 100%;
     height: auto;
     min-height: 230px;
