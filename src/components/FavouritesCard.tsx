@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom';
 
 function FavCard(props: any) {
 
+  let products;
+  if (props.recipe.products.length > 3) {
+    products = props.recipe.products.slice(0, 3);
+    products = products.join(', ');
+    products += '...';
+  } else products = props.recipe.products.join(', ');
+
   const delLocalStorage = () => {
     localStorage.removeItem(props.recipe.id);
     console.log(props.recipe.id)
@@ -14,18 +21,25 @@ function FavCard(props: any) {
   return (
     <div className="card">
       <div className="card__title">{props.recipe.title}</div>
-      <img className="card__image" src={require('../images/card__img.jpg')} alt="" />
+      <img className="card__image" src={props.recipe.image} alt="" />
       <ul className="card__ingredient flex">
-        <li>помидор</li>
-        <li>огурец</li>
-        <li>лук</li>
-        <li>масло</li>
+        <li>{products}</li>
       </ul>
-      <div className="card__desc">{props.recipe.desc}</div>
+      <div className="card__desc">{props.recipe.description}</div>
       <div className="delete" onClick={delLocalStorage}>
         <FontAwesomeIcon icon={solid('trash')} />
       </div>
-      <Link to="/recipe">
+      <Link
+        to={`/recipe/${props.recipe.id}`}
+        state={{
+          id: props.recipe.id,
+          title: props.recipe.title,
+          description: props.recipe.description,
+          products: props.recipe.products,
+          image: props.recipe.image,
+          steps: props.recipe.steps,
+        }}
+      >
         <div className="button__light">Открыть</div>
       </Link>
     </div>

@@ -39,11 +39,6 @@ function Favourite() {
             <p>Вернуться к поиску</p>
           </div>
         </Link>
-
-        {/* 
-          Здесь вывод карточек, которые попали в избранное
-        */}
-
         <FavouriteCard setDel={setDel} favRecipes={favRecipes} />
       </div>
       <FixedBg />
