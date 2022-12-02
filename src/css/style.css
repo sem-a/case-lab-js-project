@@ -188,7 +188,7 @@ option {
     grid-auto-columns: 1fr; 
     grid-auto-rows: 1fr; 
     grid-template-columns: 170px 330px 20px; 
-    grid-template-rows: 25px 25px auto; 
+    grid-template-rows: auto auto auto; 
     gap: 12px 18px; 
     grid-template-areas: 
     "card__title card__title favourite"
@@ -293,7 +293,7 @@ input[type="checkbox"]:checked + span  	{
 .delete {
     position: absolute;
     right: 24px;
-    top: 50%;
+    top: 15%;
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -320,6 +320,7 @@ h2.recipe__h2 {
 .recipe__flex {
     display: flex;
     align-items: flex-start;
+    justify-content: start;
     margin-top: 24px;
 }
 .recipe__img img{
@@ -353,5 +354,4 @@ ul.algoritm__list {
 }
 li.algoritm__item {
     list-style-type: decimal;
-    list-style-position: inside;
 }

@@ -33,22 +33,24 @@ function App() {
   const resultPhrase = createResultPhrase(recipes.length);
 
   return (
-    <div>
+    <div> 
       <Header count={count} />
       <Form props={{ setRecipes }} />
 
-      <div className="search__result">
-        <p className="result__title">
-          {recipes.length == 0 ? (
-            <b>Попробуйте что-нибудь найти.</b>
-          ) : (
-            <p>
-              Результаты поиска: <b>{resultPhrase}</b>
-            </p>
-          )}
+      <div className="container">
+        <div className="search__result">
+          <p className="result__title">
+            {recipes.length == 0 ? (
+              <b>Попробуйте что-нибудь найти.</b>
+            ) : (
+              <p>
+                Результаты поиска: <b>{resultPhrase}</b>
+              </p>
+            )}
 
+          </p>
           <CardList  setCount={setCount} recipes={recipes} />
-        </p>
+        </div>
       </div>
       <FixedBg />
     </div>
