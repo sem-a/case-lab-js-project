@@ -11,6 +11,7 @@ function App() {
   const [count, setCount] = useState<number>(localStorage.length);
   const [recipes, setRecipes] = useState([]);
 
+  
   const createResultPhrase = (arg: number) => {
     // функция генерирует правильную фразу по результатам поиска
     let titles = ['рецепт', 'рецепта', 'рецептов'];
