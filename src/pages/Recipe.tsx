@@ -5,19 +5,22 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Header from '../components/Header';
 
 function IngredientList(props: any) {
+  let i = 0;
   const ingredientList = props.products.map((item: string) => {
+    i = i + 1;
     return (
-      <li className="ingredient__item">{item}</li>
+      <li key={i} className="ingredient__item">{item}</li>
     );
   });
   return <div>{ingredientList}</div>;
 };
 function Steps(props: any) {
+  let i = 0;
   const stepList = props.steps.map((item: {image_url: string, text: string}) => {
+    i = i + 1
     return (
-      <li className="algoritm__item">
+      <li key={i} className="algoritm__item">
         <p>{item.text}</p>
-        <img src={item.image_url} alt="фото шага" />  
       </li>
     );
   });

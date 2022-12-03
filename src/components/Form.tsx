@@ -14,13 +14,12 @@ function Form(props: any) {
   const handleButton = async (e: any) => {
     e.preventDefault();
     props.props.setFlag(true)
-    const dataRecipes = await fetch(`${url}api?products=${searchInput}` + (kitchen != 'Все' ? `&kitchen=${kitchen}` : '') + (type != 'Все' ? `&type=${type}` : ''));
+    const dataRecipes = await fetch(`${url}api?` + (searchInput ? `products=${searchInput}` : '') + (kitchen != 'Все' ? `&kitchen=${kitchen}` : '') + (type != 'Все' ? `&type=${type}` : ''));
     const recipes = await dataRecipes.json();
     props.props.setRecipes(recipes);
   };
 
   useEffect(() => {
-
     fetch(url + 'api/kitchens')
     .then(e => e.json())
     .then((json) => {
@@ -38,7 +37,7 @@ function Form(props: any) {
       <div className="container">
         <form className="search__form">
           <label>Желаемые ингредиенты:</label>
-          <input type="text" id="searchMeal" className="search__meal" placeholder='памидора, агуречег' onChange={e => {setSearchInput(e.target.value)}} />
+          <input type="text" id="searchMeal" className="search__meal" placeholder='свинина, яблоко' onChange={e => {setSearchInput(e.target.value)}} />
           <div className="select__wrapp">
             <div className="select">
               <label>Кухня:</label>

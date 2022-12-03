@@ -37,7 +37,7 @@ function App() {
       <Header count={count} />
       <Form props={{ setRecipes, setFlag }} />
       <div className="search__result">
-        <p className="result__title">
+        <div className="result__title">
           {flag == false ? (
             <b>Попробуйте что-нибудь найти.</b>
           ) : (
@@ -45,9 +45,8 @@ function App() {
               Результаты поиска: <b>{resultPhrase}</b>
             </p>
           )}
-
-          <CardList setCount={setCount} recipes={recipes} />
-        </p>
+        </div>
+        <CardList setCount={setCount} recipes={recipes} /> 
       </div>
       <FixedBg />
     </div>

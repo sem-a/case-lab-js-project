@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface recipe {
+  key: string;
   id: string;
   products: string[];
   title: string;
@@ -15,7 +16,7 @@ interface recipe {
 }
 
 function Card(props: recipe) {
-  const [checked, setChecked] = useState<boolean>();
+  const [checked, setChecked] = useState<boolean>(false);
 
   let products;
   if (props.products.length > 3) {
@@ -42,7 +43,7 @@ function Card(props: recipe) {
   };
 
   return (
-    <div className="card">
+    <div className="card" key={props.id}>
       <div className="card__title">{props.title}</div>
       <img className="card__image" src={props.image} alt="" />
       <ul className="card__ingredient">
@@ -87,6 +88,7 @@ function CardList(props: any) {
   const recipeList = props.recipes.map((recipe: any) => {
     return (
       <Card
+        key={recipe.id}
         id={recipe.id}
         title={recipe.title}
         description={recipe.description}

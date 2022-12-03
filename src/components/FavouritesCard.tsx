@@ -14,7 +14,6 @@ function FavCard(props: any) {
 
   const delLocalStorage = () => {
     localStorage.removeItem(props.recipe.id);
-    console.log(props.recipe.id)
     props.setDel(props.recipe.id);
   }
 
@@ -49,7 +48,7 @@ function FavCard(props: any) {
 function FavCardList(props: any) {
   if(props.favRecipes) {
     const favRecipeList = props.favRecipes.map((recipe: any) => {
-      return <FavCard setDel={props.setDel} recipe={recipe} />;
+      return <FavCard key={recipe.id} setDel={props.setDel} recipe={recipe} />;
     });
     return <div>{favRecipeList}</div>;
   } else {
