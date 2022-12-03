@@ -165,6 +165,8 @@ option {
     font-size: 20px;
     line-height: 29px;
     border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
     padding: 11px 23px;
     background: #443133;
     color: #FCE4A4;

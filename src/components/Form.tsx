@@ -23,7 +23,7 @@ function Form(props: any) {
     }
     if(errorInput) {
       p?.classList.remove('show-error');
-      const dataRecipes = await fetch(`${url}api?` + (searchInput ? `products=${searchInput}` : '') + (kitchen != 'Все' ? `&kitchen=${kitchen}` : '') + (type != 'Все' ? `&type=${type}` : '') + '&limit=23');
+      const dataRecipes = await fetch(`${url}api?` + (searchInput ? `products=${searchInput}` : '') + (kitchen != 'Все' ? `&kitchen=${kitchen}` : '') + (type != 'Все' ? `&type=${type}` : '') + '&limit=62');
       const recipes = await dataRecipes.json();
       props.props.setRecipes(recipes);
     } else {
@@ -50,7 +50,7 @@ function Form(props: any) {
         <form className="search__form">
           <label>Желаемые ингредиенты:</label>
           <p className="input__error" id='inputError'>Ошибка: Введите ингредиенты</p>
-          <input type="text" id="searchMeal" className="search__meal" placeholder='свинина, яблоко' onChange={e => {setSearchInput(e.target.value)}} />
+          <input type="text" id="searchMeal" className="search__meal" placeholder='свинина,яблоко' onChange={e => {setSearchInput(e.target.value)}} />
           <div className="select__wrapp">
             <div className="select">
               <label>Кухня:</label>

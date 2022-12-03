@@ -29,8 +29,21 @@ function Steps(props: any) {
 
 function Recipe() {
   
-  const count = localStorage.length
   let location = useLocation();
+  const countStorage = localStorage.length
+  const [count, setCount] = useState<number>(countStorage);
+
+  const handleButton = () => {
+    localStorage.setItem(location.state.id, JSON.stringify({
+      id: location.state.id,
+      title: location.state.title,
+      description: location.state.description,
+      products: location.state.products,
+      image: location.state.image,
+      steps: location.state.steps,
+    }));
+    setCount(localStorage.length);
+  }
 
   return (
     <div>
@@ -56,6 +69,7 @@ function Recipe() {
               </div>
               <ul className="ingredient__list">
                 <IngredientList products={location.state.products} />
+                <div className="button__dark" onClick={handleButton}>В избранное</div>
               </ul>
             </div>
           </div>
