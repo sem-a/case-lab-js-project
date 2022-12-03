@@ -47,9 +47,8 @@ function App() {
                 Результаты поиска: <b>{resultPhrase}</b>
               </p>
             )}
-
+            <CardList  setCount={setCount} recipes={recipes} />
           </p>
-          <CardList  setCount={setCount} recipes={recipes} />
         </div>
       </div>
       <FixedBg />
