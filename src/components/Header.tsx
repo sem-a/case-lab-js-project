@@ -4,13 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 function Header(props: any) {
-  
-  //const [count, setCount] = useState<number>()
-
-  // useEffect(() => {
-  //   const lenghtStorage = localStorage.length;
-  //   setCount(lenghtStorage);
-  // },[]);
 
   return (
     <div className="header">

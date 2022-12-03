@@ -13,11 +13,10 @@ function Form(props: any) {
 
   const handleButton = async (e: any) => {
     e.preventDefault();
-    const dataRecipes = await fetch(`${url}api? + (searchInput ? products=${searchInput} : '') + (kitchen != 'Все' ? &kitchen=${kitchen} : '') + (type != 'Все' ? &type=${type} : '')`);
-
+    props.props.setFlag(true)
+    const dataRecipes = await fetch(`${url}api?products=${searchInput}` + (kitchen != 'Все' ? `&kitchen=${kitchen}` : '') + (type != 'Все' ? `&type=${type}` : ''));
     const recipes = await dataRecipes.json();
     props.props.setRecipes(recipes);
-    console.log(recipes)
   };
 
   useEffect(() => {

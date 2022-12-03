@@ -10,8 +10,8 @@ import './css/style.css';
 function App() {
   const [count, setCount] = useState<number>(localStorage.length);
   const [recipes, setRecipes] = useState([]);
+  const [flag, setFlag] = useState<boolean>(false);
 
-  
   const createResultPhrase = (arg: number) => {
     // функция генерирует правильную фразу по результатам поиска
     let titles = ['рецепт', 'рецепта', 'рецептов'];
@@ -35,11 +35,11 @@ function App() {
   return (
     <div>
       <Header count={count} />
-      <Form props={{ setRecipes }} />
+      <Form props={{ setRecipes, setFlag }} />
 
       <div className="search__result">
         <p className="result__title">
-          {recipes.length == 0 ? (
+          {flag == false ? (
             <b>Попробуйте что-нибудь найти.</b>
           ) : (
             <p>
@@ -47,7 +47,7 @@ function App() {
             </p>
           )}
 
-          <CardList  setCount={setCount} recipes={recipes} />
+          <CardList setCount={setCount} recipes={recipes} />
         </p>
       </div>
       <FixedBg />
