@@ -21,7 +21,7 @@ function App() {
       return `${find[1]} ${arg} ${
         titles[arg % 100 > 4 && arg % 100 < 20 ? 2 : cases[Math.min(arg % 10, 5)]]
       }`;
-    }
+    };
     if (arg == 0) {
       return 'ничего не найдено';
     } else {

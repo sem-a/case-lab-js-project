@@ -5,7 +5,6 @@ function Form(props: any) {
 
   const [type, setType] = useState('Все');
   const [kitchen, setKitchen] = useState('Все');
-  const [errorInput, setErrorInput] = useState('');
 
   const [searchInput, setSearchInput] = useState('');
   const [types , setTypes] = useState([{_id:'127364',name:'Все'}]);
