@@ -33,10 +33,9 @@ function App() {
   const resultPhrase = createResultPhrase(recipes.length);
 
   return (
-    <div>
+    <div> 
       <Header count={count} />
       <Form props={{ setRecipes, setFlag }} />
-
       <div className="search__result">
         <p className="result__title">
           {flag == false ? (
