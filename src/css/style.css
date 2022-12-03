@@ -136,6 +136,14 @@ body {
     height: 50px;
     border-radius: 20px;
 }
+.input__error {
+    font-size: 14px;
+    color: #FF001B;
+    display: none;
+}
+.show-error {
+    display: block;
+}
 .select {
     width: 250px;
 }
@@ -310,9 +318,6 @@ input[type="checkbox"]:checked + span  	{
     position: relative;
     padding-top: 130px;
     z-index: 50;
-}
-.recipe__title {
-
 }
 h2.recipe__h2 {
     font-weight: 700;
