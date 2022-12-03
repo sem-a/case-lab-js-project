@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# MealSearch
+## Описание
+MealSearch - сервис поиска рецептов по ингридиентам, кухне и типу блюда со своей пополняемой базой данных.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
